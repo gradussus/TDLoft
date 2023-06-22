@@ -3,6 +3,7 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const employersRouter = require("./routes/api/employersRouter");
+const authRouter = require("./routes/api/authRouter");
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use("/", employersRouter);
+app.use("/api/employers", employersRouter);
+app.use("/api/auth", authRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });

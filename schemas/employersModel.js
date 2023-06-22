@@ -10,6 +10,18 @@ const employerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    login: {
+      type: String,
+    },
+    password: {
+      type: String,
+    },
+    register: {
+      type: Boolean,
+    },
+    token: {
+      type: String,
+    },
   },
   { versionKey: false, timestamps: true }
 );
