@@ -18,6 +18,7 @@ const employerSchema = new mongoose.Schema(
     },
     register: {
       type: Boolean,
+      default: false,
     },
     token: {
       type: String,
