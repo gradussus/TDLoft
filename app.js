@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const employersRouter = require("./routes/api/employersRouter");
 const authRouter = require("./routes/api/authRouter");
+const tasksRouter = require("./routes/api/tasksRouter");
 const { errorHandler } = require("./helpers/apiHelper");
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use("/api/employers", employersRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/tasks", tasksRouter);
 
 app.use(errorHandler);
 
