@@ -25,4 +25,11 @@ const registerUserService = async (login, password, e_name) => {
   return user;
 };
 
-module.exports = { registerUserService };
+const loginUserService = async (login, password) => {
+  user = Employer.findOne({
+    $and: [{ login: login }, { password: password }, { register: true }],
+  });
+  return user;
+};
+
+module.exports = { registerUserService, loginUserService };

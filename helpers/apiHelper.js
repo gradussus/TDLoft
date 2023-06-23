@@ -1,4 +1,4 @@
-const { ConflictError } = require("./errors");
+const { ConflictError, UnauthorizedError } = require("./errors");
 
 const asyncWrapper = (controller) => {
   return (req, res, next) => {
@@ -7,7 +7,7 @@ const asyncWrapper = (controller) => {
 };
 
 const errorHandler = (error, req, res, next) => {
-  if (error instanceof ConflictError) {
+  if ((error instanceof ConflictError) | (error instanceof UnauthorizedError)) {
     return res.status(error.status).json({ message: error.message });
   }
   res.status(500).json({ message: error.message });
